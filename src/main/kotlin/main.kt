@@ -22,12 +22,12 @@ fun createGameLoop(callbacks: List<(Long) -> Unit>): (Long) -> Long {
 
 fun main(args: Array<String>) {
 
-    val callbacks = listOf<(Long) -> Unit>(
-        {l: Long -> println(l)},
-        {l: Long -> Thread.sleep(500)}
+    val callbacks: List<(Long) -> Unit> = listOf(
+        { l: Long -> println(l) },
+        { Thread.sleep(500) }
     )
 
     val l = createGameLoop(callbacks);
 
-    generateSequence(0L){ it + 1 }.fold(0L){ n, _ -> l(n) }
+    generateSequence{ Unit }.fold(0L){ n, _ -> l(n) }
 }
