@@ -29,5 +29,5 @@ fun main(args: Array<String>) {
 
     val l = createGameLoop(callbacks);
 
-    generateSequence(0L){ it + 1 }.fold(0L){ n, m -> l(n) }
+    generateSequence(0L){ it + 1 }.fold(0L){ n, _ -> l(n) }
 }
